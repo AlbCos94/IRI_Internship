@@ -1,0 +1,73 @@
+
+path generation;
+
+x_A=2;
+y_A=1;
+K_A=0;
+theta_A=0;
+x_B=6;
+y_B=2;
+K_B=0;
+theta_B=0;
+N=5;
+resolution=0.1;
+
+spline_3rdo_velX -------
+
+velocity profile (a_o=0);
+v_0=14;
+v_f=0;
+x_0=0;
+x_f=10;
+t0=0;
+delta_t=0.02;
+
+
+-----spline_3rdo_vel_a0 ------
+
+a_acc=2;
+a_fre=2;
+var_acc=2;
+a_0=-1.5;
+v_0=7;
+v_f=0; 
+x_0=0;
+t_0=0;
+delta_t=0.02; 
+min_end_pos=100; 
+
+
+------spline_vel ---------
+a_acc=2;
+a_fre=2;
+v_0=14.25;
+v_f=14; 
+x_0=7.0833;
+t_0=0.5;
+delta_t=0.02; 
+min_end_pos=80;
+
+------Search_closest_point_full ---------
+
+pos_X=1;
+pos_Y=1;
+start_i=5;
+path_X=[1 2 3 4 5 6 7 8 9 10];
+path_Y=[0 0 0 0 0 0 0 0 0 0 ];
+start_i=5;
+
+---- Path------ --> para generar un path en matlab como en el geany
+x=[0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9 6.0 6.1 6.2 6.3 6.4 6.5 6.6 6.7 6.8 6.9 7.0 7.1 7.2 7.3 7.4 7.5 7.6 7.7 7.8 7.9 8.0 8.1 8.2 8.3 8.4 8.5 8.6 8.7];
+y=zeros(1,88);
+curv=y;
+GP_path=[x;y;curv];
+static_obs = C_StaticObs(GP_path);
+
+
+---- max_admissible_vels----
+resolution=0.1;
+comfort_a_lat=3;
+max_road_vel=14;
+vector=[0, 0.1, 0.1, 0.1, 2, 3, 1, 1];
+
+
